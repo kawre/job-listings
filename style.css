@@ -79,9 +79,10 @@ header {
 
 .job-details {
   display: flex;
-  font-size: 15px;
+  font-size: 14px;
   color: hsl(180, 8%, 52%);
   list-style: none;
+  align-items: center;
 }
 
 .job-info {
@@ -95,7 +96,7 @@ header {
   width: 4px;
   border-radius: 50%;
   background: hsl(180, 8%, 52%);
-  margin: auto;
+  margin: 0 20px;
 }
 
 /* job right */
@@ -127,4 +128,54 @@ button:hover {
 .job-tools {
   display: flex;
   gap: 15px;
+}
+
+/* filters */
+
+.filter {
+  width: 1110px;
+  height: 70px;
+  background: white;
+  top: 121px;
+  left: 50%;
+  margin-left: -555px;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px hsla(180, 29%, 50%, 0.25);
+  position: absolute;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+}
+
+.filter button {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.filters:empty .filter {
+  display: none !important;
+}
+
+.clear {
+  background: none;
+  border: none;
+}
+
+.clear-filters {
+  position: absolute;
+  right: 0;
+  padding-right: 40px;
+  background: white;
+}
+
+.clear:hover {
+  text-decoration: underline;
+  color: hsl(180, 29%, 50%);
+  background: unset;
+  transition: 0.1s ease-in;
 }

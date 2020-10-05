@@ -152,23 +152,14 @@ const jobs = [
 ];
 
 const jobsContainer = document.querySelector(".jobs-container");
-const jobsLanguages = document.querySelector(".job-languages");
 
 window.addEventListener("DOMContentLoaded", function () {
   displayJobs(jobs);
+  filter();
 });
 
 function displayJobs(jobsItems) {
   let displayJobs = jobsItems.map(function (job) {
-    function languages() {
-      for (i = 0; i < job.languages.length; i++) {
-        console.log(job.languages.length);
-        const btn = document.createElement("button");
-        const lang = document.createTextNode(job.languages[i]);
-        btn.appendChild(lang);
-        jobsLanguages.appendChild(btn);
-      }
-    }
     //return
     return `<div class="job-container">
         <!-- job left -->
@@ -196,16 +187,16 @@ function displayJobs(jobsItems) {
     
         <div class="job-right">
           <div class="job-role">
-            <button>${job.role}</button>
+            <button class="button">${job.role}</button>
           </div>
           <div class="job-level">
-            <button>${job.level}</button>
+            <button class="button">${job.level}</button>
           </div>
           <div class="job-languages">
-            ${languages()}
+            <button class="button">${job.languages}</button>
           </div>
           <div class="job-tools">
-            <button>${job.tools}</button>
+            <button class="button">${job.tools}</button>
           </div>
         </div>
       </div>`;
@@ -223,3 +214,24 @@ divs.forEach(function (div) {
     div.style.display = "none";
   }
 });
+
+// remove if filters empty
+
+const filterCont = document.querySelector(".filter");
+const filtersCont = document.querySelector(".filters");
+
+// buttons filter
+
+function filter() {
+  const btns = document.querySelectorAll(".button");
+
+  btns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const buttonId = e.currentTarget.innerHTML;
+      const button = document.createElement("button");
+      button.innerHTML = buttonId;
+      filtersCont.appendChild(button);
+      console.log(e);
+    });
+  });
+}
