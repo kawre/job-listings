@@ -219,6 +219,7 @@ divs.forEach(function (div) {
 
 const filterCont = document.querySelector(".filter");
 const filtersCont = document.querySelector(".filters");
+console.log(filterCont);
 
 // buttons filter
 
@@ -228,10 +229,37 @@ function filter() {
   btns.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       const buttonId = e.currentTarget.innerHTML;
-      const button = document.createElement("button");
-      button.innerHTML = buttonId;
-      filtersCont.appendChild(button);
-      console.log(e);
+      buttonContainer = document.createElement("div");
+
+      const elo = `<div class="button-container">
+      <button class="filter-button">${buttonId}</button>
+      <button class="remove-button">
+      <img src="/images/icon-remove.svg" alt="" />
+      </button>
+      </div>`;
+
+      buttonContainer.innerHTML = elo;
+      filtersCont.appendChild(buttonContainer);
+
+      filterCont.classList.remove("hide");
     });
   });
 }
+
+const clearBtn = document.querySelector(".clear");
+
+clearBtn.addEventListener("click", function () {
+  filtersCont.innerHTML = "";
+  filterCont.classList.add("hide");
+});
+
+// remove button from filters list
+
+const removeBtns = document.querySelectorAll(".remove-button");
+
+removeBtns.forEach((btn) => {
+  const btnParent = btn.parentElement;
+  btn.addEventListener("click", () => {
+    filtersCont.removeChild(btnParent);
+  });
+});

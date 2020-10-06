@@ -145,6 +145,36 @@ button:hover {
   padding: 0 40px;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.button-container {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer !important;
+}
+
+.filter-button {
+  cursor: auto;
+}
+
+.remove-button {
+  background: hsl(180, 29%, 50%);
+  height: 32px;
+  width: 32px;
+  display: flex;
+  border-radius: unset;
+}
+
+.remove-button:hover {
+  background: black !important;
+}
+
+.remove-button img {
+  margin: auto;
+  position: relative;
+  top: -1px;
 }
 
 .filters {
@@ -152,13 +182,10 @@ button:hover {
   gap: 15px;
 }
 
-.filter button {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.filters:empty .filter {
-  display: none !important;
+.filters button:hover {
+  color: hsl(180, 29%, 50%);
+  background: hsl(180, 31%, 95%);
+  transition: 0.1s ease-in;
 }
 
 .clear {
@@ -178,4 +205,8 @@ button:hover {
   color: hsl(180, 29%, 50%);
   background: unset;
   transition: 0.1s ease-in;
+}
+
+.hide {
+  display: none;
 }
