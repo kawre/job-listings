@@ -174,7 +174,7 @@ function displayJobs(jobsItems) {
               <a href="${job.company}"><h1>${job.position}</h1></a>
             </div>
             <ul class="job-details">
-              <li>${job.postedAt}</li>
+              <li class="how-long-ago">${job.postedAt}</li>
               <div class="circle"></div>
               <li class="contract">${job.contract}</li>
               <div class="circle"></div>
@@ -204,6 +204,12 @@ function displayJobs(jobsItems) {
   // join
   displayJobs = displayJobs.join("");
   jobsContainer.innerHTML = displayJobs;
+
+  const ago = document.querySelectorAll(".how-long-ago");
+
+  if (ago.innerHTML.includes("1")) {
+    ago.style.display = "none";
+  }
 }
 
 // remove empty job filters

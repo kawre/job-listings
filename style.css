@@ -61,6 +61,7 @@ header {
 }
 
 .job-container {
+  position: relative;
   background: white;
   border-radius: 8px;
   display: flex;
@@ -70,6 +71,11 @@ header {
   height: 150px;
   margin: auto;
   padding: 31px 40px;
+  overflow: hidden;
+}
+
+.border {
+  border-left: 6px solid hsl(180, 29%, 50%);
 }
 
 .job-left {
